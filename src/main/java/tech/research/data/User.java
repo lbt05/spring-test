@@ -23,9 +23,6 @@ public class User implements Serializable{
     @Column(nullable = false)
     private String username;
 
-//    @Column(nullable = false,columnDefinition = "initialPassword")
-//    private String password;
-
     @Column
     private int age;
 }
