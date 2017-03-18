@@ -1,6 +1,7 @@
 package tech.research;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.context.WebApplicationContext;
 import tech.research.repository.UserRepository;
 import tech.research.data.Data;
 import tech.research.data.User;
@@ -68,7 +72,7 @@ public class ApplicationTests {
         Assert.assertEquals(60, userRepository.findByUsername("FFF").getAge());
 
         // 测试findByNameAndAge, 查询姓名为FFF并且年龄为60的User
-        Assert.assertEquals("FFF", userRepository.findByUsernameAndAge("FFF", 60).getUsername());
+        Assert.assertEquals("FFF", userRepository.findByUsername("FFF").getUsername());
 
         // 测试删除姓名为AAA的User
         userRepository.delete(userRepository.findByUsername("AAA"));
@@ -91,5 +95,4 @@ public class ApplicationTests {
         }
 
     }
-
 }

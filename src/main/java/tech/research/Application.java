@@ -2,8 +2,6 @@ package tech.research;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import javax.swing.*;
-
 /**
  * Created by jay on 6/03/17.
  */
